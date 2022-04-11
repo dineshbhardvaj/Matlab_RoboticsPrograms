@@ -1,0 +1,32 @@
+%{
+   Obtain the position and orientation of the tool point P with respect to the base for Cylindrical Arm, with L1 = 700,L2 =600, D2 = 100mm, D3 = 200mm, theta =45 degree.; 
+%}
+
+
+
+clc; % clear window
+close all; % clear all functions and variables
+tr = trans; %from translation matrix
+%given
+O = [0,0,0,1]';
+L1 = 700;
+L2 = 600;
+th1 = 45;
+d2 = 100;
+d3 = 200;
+
+hr = homo_rot;
+hr.xrot(90);
+hr.zrot(90);
+
+%equaiton for 3Dof Cylinderical Arm 
+P = hr.zrot(th1)*tr.trans_z(L1)*tr.trans_z(d2)*hr.xrot(-90)*tr.trans_z(L2)*tr.trans_z(d3)*O;
+display(P);
+
+%3d Plot
+x1 = O;
+x11 = hr.zrot(th1)*tr.trans_z(L1)*O;
+x2 = hr.zrot(th1)*tr.trans_z(L1)*tr.trans_z(d2)*O;
+x3 = 
+
+close all; % clear all functions and variables
